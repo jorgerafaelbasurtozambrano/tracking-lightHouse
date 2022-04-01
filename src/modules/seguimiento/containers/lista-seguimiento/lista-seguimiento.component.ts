@@ -13,7 +13,8 @@ import { DetalleTrackingComponent } from '@app/modales/detalle-tracking/detalle-
 export class ListaSeguimientoComponent implements OnInit,AfterViewInit {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol','detalle'];
   dataSource = new MatTableDataSource<any>();
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: false })
+  paginator!: MatPaginator;
 
   constructor(private ShipmentTracking:ShipmentTrackingService,public dialog: MatDialog) { 
   }
