@@ -1,0 +1,85 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <mat-card class="example-card">
+            <mat-card-title>{{data.ShippingCompany}}</mat-card-title>
+            <mat-card-content>
+                <div class="form-group">
+                    <label for="title">#BL</label>
+                    <div class="input-group">
+                      <input [(ngModel)]="data.Input" ng-model="bookmark.title" id="title" class="form-control" type="text" placeholder="Número de BL/Contenedor">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="title">DESTINO</label>
+                    <div class="input-group">
+                      <input [(ngModel)]="data.DestinationLocation" ng-model="bookmark.title" id="title" class="form-control" type="text" placeholder="DESTINO">
+                    </div>
+                  </div>
+            </mat-card-content>
+          </mat-card>
+          <br>
+          <div class="row">
+            <div class="col-sm">
+              <mat-card class="example-card">
+                  <!-- <mat-card-title>ARRIBO</mat-card-title> -->
+                  <mat-card-content>
+                      <mat-list>
+                          <div style="color: black;" mat-subheader>Fecha Llegada</div>
+                          <mat-list-item *ngFor="let folder of data.ArrivalDate.slice().reverse()">
+                            <mat-icon style="color: black;" *ngIf="folder !='2000-01-01' " mat-list-icon>update</mat-icon>
+                            <div style="color: black;" *ngIf="folder !='2000-01-01' " mat-line> {{folder | date}} </div>
+                          </mat-list-item>
+                        </mat-list>
+                  </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <mat-card>
+            <!-- <mat-card-title>ARRIBO</mat-card-title> -->
+            <mat-card-content>
+                <mat-list *ngFor="let element of data.ContainerDetails; let i=index">
+                    <div mat-subheader>CONTENEDOR : {{element.NoContainer}}</div>
+                    <div class="mat-elevation-z8">
+                        <table mat-table [dataSource]="element.Movements">
+                          <!-- Position Column -->
+                          <ng-container  matColumnDef="position">
+                            <th mat-header-cell *matHeaderCellDef> Activity </th>
+                            <td class="data_" mat-cell *matCellDef="let Movements"> {{Movements.Activity}} </td>
+                          </ng-container>
+                      
+                          <!-- Name Column -->
+                          <ng-container matColumnDef="name">
+                            <th mat-header-cell *matHeaderCellDef> ActivityDate </th>
+                            <td class="data_" mat-cell *matCellDef="let Movements"> {{Movements.ActivityDate[0]}} </td>
+                          </ng-container>
+                      
+                          <!-- Weight Column -->
+                          <ng-container matColumnDef="weight">
+                            <th mat-header-cell *matHeaderCellDef> ActivityLocation </th>
+                            <td class="data_" mat-cell *matCellDef="let Movements"> {{Movements.ActivityLocation}} </td>
+                          </ng-container>
+                      
+                          <!-- Symbol Column -->
+                          <ng-container matColumnDef="symbol">
+                            <th mat-header-cell *matHeaderCellDef> ActivityTime </th>
+                            <td class="data_" mat-cell *matCellDef="let Movements"> {{Movements.ActivityTime[0]}} </td>
+                          </ng-container>
+                      
+                          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </table>
+                      
+                        <!-- <mat-paginator [pageSizeOptions]="[5, 10, 20]"
+                                       showFirstLastButtons 
+                                       aria-label="Select page of periodic elements">
+                        </mat-paginator> -->
+                      </div>
+                  </mat-list>
+            </mat-card-content>
+          </mat-card>
+      </div>
+    </div>
+  </div>

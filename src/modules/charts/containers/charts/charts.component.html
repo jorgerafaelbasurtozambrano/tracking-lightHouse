@@ -1,0 +1,47 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Nuevo Seguimiento" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <!-- <sb-card><div class="card-body">sssChart.js is a third party plugin that is used to generate the charts in this template. The charts below have been customized - for further customization options, please visit the official <a target="_blank" href="https://www.chartjs.org/docs/latest/">Chart.js documentation</a>.</div></sb-card><sb-card>
+        <div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-area"]'></fa-icon>Area Chart Example</div>
+        <div class="card-body"><sb-charts-area></sb-charts-area></div>
+        <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div></sb-card> -->
+    <!-- <div class="row">
+        <div class="col-lg-6">
+            <sb-card
+                ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-bar"]'></fa-icon>Bar Chart Example</div>
+                <div class="card-body"><sb-charts-bar></sb-charts-bar></div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div></sb-card
+            >
+        </div>
+        <div class="col-lg-6">
+            <sb-card
+                ><div class="card-header"><fa-icon class="mr-1" [icon]='["fas", "chart-pie"]'></fa-icon>Pie Chart Example</div>
+                <div class="card-body"><sb-charts-pie></sb-charts-pie></div>
+                <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div></sb-card
+            >
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div [hidden]="submitted">
+            <h1>Ingreso de Nuevo Seguimiento</h1>
+            <form>
+                <div class="form-group">
+                    <label for="name">#BL</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="ORIGEN">ArrivalDate</label>
+                    <input type="date" class="form-control" id="ORIGEN"  name="ORIGEN">
+                </div>
+                <div class="form-group">
+                    <label for="power">NAVIERA</label>
+                    <select class="form-control" id="power" name="power">
+                        <option selected disabled>SELECCIONE NAVIERA</option>
+                      <option *ngFor="let pow of powers" [value]="pow.id">{{pow.naviera}}</option>
+                    </select>
+                  </div>
+                  <button type="submit" class="btn btn-success" >CREAR</button>
+            </form>
+        </div>
+    </div>
+    </sb-layout-dashboard>

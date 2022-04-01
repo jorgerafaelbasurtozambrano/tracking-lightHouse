@@ -1,0 +1,74 @@
+<sb-layout-dashboard>
+    <sb-dashboard-head title="Nuevo Seguimiento" [hideBreadcrumbs]="false"></sb-dashboard-head>
+    <mat-card class="example-card">
+        <mat-card-title>Ingresar Seguimiento</mat-card-title>
+        <mat-divider inset></mat-divider>
+        <mat-card-content>
+          <BR>
+          <br>
+          <form [formGroup]="formSeguimiento">
+          <div class="form-group">
+            <label for="title">#BL</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="glyphicon glyphicon-bookmark"></i>
+              </div>
+              <input formControlName="formSeguimientoBL" ng-model="bookmark.title" id="title" class="form-control" type="text" placeholder="Número de BL/Contenedor">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category">TIPO</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="glyphicon glyphicon-folder-open"></i>
+              </div>
+              <select (change)="onChange($event.target.value)" formControlName="formSeguimientoContenedor" ng-model="bookmark.category" ng-options="value for value in categories" id="category" class="form-control">
+                  <option [selected]="true" disabled value="0">SELECIONAR UNA OPCIÓN</option>
+                  <option value="0">CONTENEDOR</option>
+                  <option value="1">BL</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="category">NAVIERA</label>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <i class="glyphicon glyphicon-folder-open"></i>
+              </div>
+              <select formControlName="formSeguimientoNaviera" ng-model="bookmark.category" ng-options="value for value in categories" id="category" class="form-control">
+                  <option [selected]="true" disabled value="0">SELECIONAR UNA OPCIÓN</option>
+                  <option value="1">MAERSK</option>
+              </select>
+            </div>
+          </div>
+          
+          <div [hidden]="isHidden" class="form-group">
+            <mat-form-field class="example-chip-list" appearance="fill">
+              <mat-label style="color: black;">Contenedores</mat-label>
+              <mat-chip-list #chipList aria-label="Fruit selection">
+                <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+                  {{fruit.name}}
+                  <button matChipRemove>
+                    <mat-icon>cancel</mat-icon>
+                  </button>
+                </mat-chip>
+                <input placeholder="New fruit..."
+                       [matChipInputFor]="chipList"
+                       [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                       [matChipInputAddOnBlur]="addOnBlur"
+                       (matChipInputTokenEnd)="add($event)">
+              </mat-chip-list>
+            </mat-form-field>
+          </div>
+          
+        </form>
+        </mat-card-content>
+        <mat-divider inset></mat-divider>
+        <mat-card-actions>
+            <button  [disabled]="formSeguimiento.invalid" (click)="save()" type="button" class="btn btn-primary">Guardar</button>
+        </mat-card-actions>
+        <mat-card-footer>
+          <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+        </mat-card-footer>
+      </mat-card>
+</sb-layout-dashboard>
