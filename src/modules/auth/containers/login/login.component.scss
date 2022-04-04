@@ -1,1 +1,20 @@
-@import 'styles/variables.scss';
+// @import 'styles/variables.scss';
+.verde{
+    background: #4eb39e;
+    color: black;
+    padding-bottom: 0px;
+    border-bottom-width: 0px;
+
+    
+}
+.negro{
+ 
+    color: rgb(5, 97, 62);
+}
+
+.lado{
+ 
+    justify-content: flex-end;
+    right: 35px;
+
+}
