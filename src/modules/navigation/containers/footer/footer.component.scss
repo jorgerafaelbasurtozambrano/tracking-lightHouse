@@ -68,6 +68,10 @@ body{
     background: #4284c0;
     color: #fff;
 }
+.social-icon--gaia{
+    background: #95b359;
+    color: #fff;
+}
 .social-icon--twitter{
     background: #2b97f1;
     color: #fff;
@@ -96,6 +100,14 @@ body{
 }
 .social-icon--codepen .tooltip::after{
     border-top-color: black;
+}
+
+.social-icon--gaia .tooltip{
+    background: #3d5166;
+    columns: currentColor;
+}
+.social-icon--gaia .tooltip::after{
+    border-top-color: #3d5166;
 }
 
 .social-icon--facebook .tooltip{
