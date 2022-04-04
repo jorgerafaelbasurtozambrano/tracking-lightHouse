@@ -20,9 +20,9 @@ import * as navigationGuards from './guards';
 
 /* Services */
 import * as navigationServices from './services';
-
+import { MatIconModule } from '@angular/material/icon';
 @NgModule({
-    imports: [CommonModule, RouterModule, AppCommonModule],
+    imports: [CommonModule, RouterModule, AppCommonModule,MatIconModule],
     providers: [...navigationServices.services, ...navigationGuards.guards],
     declarations: [
         ...navigationContainers.containers,
